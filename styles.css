@@ -1,0 +1,390 @@
+/* Nicholas Lord */
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End reset*/
+
+@import url(https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat);
+
+:root {
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --dark-gray: #222222;
+    --light-gray: #EAEAEA;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+/* Skip content and hidden */
+#skip
+{
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+ 
+#skip:focus
+{
+position:static;
+width:auto;
+height:auto;
+}
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    }
+/* End skip and hidden */
+
+/* Font styling */
+h1, h2, h3 {
+    font-family: 'Molle', cursive;
+}
+h1 {
+    font-size: 50px;
+}
+h2 {
+    font-size: 40px;
+}
+h3 {
+    font-size: 40px;
+}
+h4, p, q, small, nav, button, form {
+    font-family: 'Montserrat', sans-serif;
+}
+h4 {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+p {
+    font-size: 16px;
+    line-height: 2rem;
+}
+q {
+    font-size: 20px;
+    font-style: italic;
+    quotes: "“" "”";
+    line-height: 24px;
+}
+q::before {
+    content: open-quote;
+}
+q::after {
+    content: close-quote;
+}
+/* End font styling */
+
+/* Header */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    background-image: linear-gradient(var(--blue), var(--white) 100%);
+}
+
+header h1 {
+    order: 3;
+    width: 100%;
+    padding: 20px 0px 0px 20px;
+}
+header p {
+    order: 4;
+    padding: 20px;
+}
+/* End header*/
+
+/* Dropdown menu*/
+input[type="checkbox"]{
+    opacity: 0;
+    position: absolute;
+}
+#menu-toggle {
+    text-align: center;
+    position: relative;
+}
+#menu-toggle label {
+    background-color: var(--yellow);
+}
+#menu-toggle ul {
+    list-style: none;
+}
+input[type="checkbox"]:checked ~ ul {
+    visibility: visible;
+}
+/* End dropdown */
+
+/* Intro */
+#intro h2{
+    padding: 20px 0px 0px 20px;
+}
+#intro p {
+    padding: 20px
+}
+#img-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+#img-grid img {
+    flex-grow: 1;
+    min-width: 500px;
+}
+/* End dropdown */
+
+/* Plan */
+#plan {
+    background-color: var(--yellow);
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+#plan div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#plan h3 {
+    padding: 30px 0px 0px 20px;
+    margin-bottom: 20px;
+}
+#plan section {
+    background-color: var(--teal);
+    margin: 5px;
+    padding: 20px;
+    width: 20em;
+    height: 18em;
+    text-align: center;
+    border-radius: 10px;
+    border: solid var(--white) 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#plan img {
+    width: 60%;
+}
+/* End plan */
+
+/* Testimonials */
+#testimonials h3 {
+    padding: 30px 0px 0px 20px;
+
+}
+#testimonials div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+#testimonials section {
+    width: 60%;
+}
+#testimonials p {
+    font-size: 20px;
+}
+/* End testimonials */
+
+/* About */
+#about h3 {
+    padding: 30px 0px 0px 20px;
+}
+#about h4 {
+    font-size: 20px;
+}
+#about {
+    background-color: var(--blue);
+}
+#about div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#about section {
+    text-align: center;
+    margin: 1rem;
+}
+#about img {
+    width: auto;
+    height: 100px;
+}
+/* End about */
+
+/* Contact */
+#contact h3 {
+    padding: 30px 0px 0px 20px;
+}
+#contact label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 1em;
+}
+#contact input::placeholder {
+    font-size: 16px;
+    padding-left: 1em;
+}
+.form-required {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    margin-left: 2em;
+}
+#contact form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+#names, #nums {
+    display: flex;
+    flex-direction: column;
+}
+#names input, #nums input{
+    border-color: var(--purple);
+    border-width: 3px;
+    border-style: solid;
+    line-height: 3rem;
+    align-self: center;
+    width: 70%;
+}
+#names label, #nums label {
+    width: 70%;
+    align-self: center;
+}
+.required {
+    color: var(--purple);
+}
+#nums fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#nums fieldset label {
+    display: flex;
+    padding: 1em;
+}
+#nums input[type='radio'] {
+    transform: scale(4);
+    accent-color: var(--purple);
+}
+.radio-label {
+    padding-left: 2em;
+    font-size: 20px;
+    align-self: center;
+    font-weight: normal;
+}
+#nums fieldset legend {
+    padding-top: 1em;
+    margin-left: 3em;
+    font-weight: bold;
+    font-size: 20px;
+}
+#selects {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.custom-select {
+    width: 73%;
+}
+#selects label {
+    width: 70%;
+}
+.custom-select select {
+    border-color: var(--purple);
+    border-width: 3px;
+    border-style: solid;
+    width: 100%;
+    height: 4em;
+}
+#selects input[type='submit'] {
+    width: 73%;
+    border: none;
+    background-color: var(--purple);
+    height: 3em;
+    margin-top: 1em;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#selects input[type='submit']:hover {
+    background-color: var(--blue);
+}
+/* End contact */
+
+/* Footer */
+footer {
+    background-color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 8em;
+    justify-content: space-around;
+}
+footer a {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--black);
+    font-family: 'Montserrat', sans-serif;
+
+}

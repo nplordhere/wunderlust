@@ -1,3 +1,5 @@
+@import url(https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat);
+
 /* Nicholas Lord */
 
 
@@ -51,7 +53,6 @@ table {
 }
 /* End reset*/
 
-@import url(https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat);
 
 :root {
     --yellow: #F6D64A;
@@ -88,7 +89,8 @@ height:auto;
     width:1px;
     height:1px;
     overflow:hidden;
-    }
+}
+
 /* End skip and hidden */
 
 /* Font styling */
@@ -151,19 +153,34 @@ header p {
 /* End header*/
 
 /* Dropdown menu*/
+nav {
+    align-self: center;
+    display: flex;
+    justify-content: right;
+    flex-grow: 1;
+}
+header nav a {
+    text-decoration: none;
+    font-size: 15;
+    font-weight: 600;
+    color: var(--black);
+}
 input[type="checkbox"]{
     opacity: 0;
     position: absolute;
 }
 #menu-toggle {
     text-align: center;
-    position: relative;
 }
 #menu-toggle label {
     background-color: var(--yellow);
+    cursor: pointer;
+    padding: 25px 80px;
 }
 #menu-toggle ul {
     list-style: none;
+    position: absolute;
+    visibility: hidden;
 }
 input[type="checkbox"]:checked ~ ul {
     visibility: visible;
@@ -184,10 +201,12 @@ input[type="checkbox"]:checked ~ ul {
     width: 100%;
     align-items: center;
 }
-#img-grid img {
+#img-grid img, #img-grid picture {
     flex-grow: 1;
-    min-width: 500px;
+    min-width: 100%;
+    max-width: 100%;
 }
+
 /* End dropdown */
 
 /* Plan */
@@ -234,10 +253,10 @@ input[type="checkbox"]:checked ~ ul {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 100%;
 }
 #testimonials section {
     width: 60%;
+    margin: 1em;
 }
 #testimonials p {
     font-size: 20px;
@@ -288,9 +307,8 @@ input[type="checkbox"]:checked ~ ul {
     margin-left: 2em;
 }
 #contact form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
+    width: 80%;
+    margin: auto;
 }
 
 #names, #nums {
@@ -303,10 +321,11 @@ input[type="checkbox"]:checked ~ ul {
     border-style: solid;
     line-height: 3rem;
     align-self: center;
-    width: 70%;
+    width: 100%;
+    font-size: 15px;
 }
 #names label, #nums label {
-    width: 70%;
+    width: 101%;
     align-self: center;
 }
 .required {
@@ -333,7 +352,6 @@ input[type="checkbox"]:checked ~ ul {
 }
 #nums fieldset legend {
     padding-top: 1em;
-    margin-left: 3em;
     font-weight: bold;
     font-size: 20px;
 }
@@ -344,10 +362,10 @@ input[type="checkbox"]:checked ~ ul {
     align-items: center;
 }
 .custom-select {
-    width: 73%;
+    width: 100%;
 }
 #selects label {
-    width: 70%;
+    width: 101%;
 }
 .custom-select select {
     border-color: var(--purple);
@@ -357,7 +375,7 @@ input[type="checkbox"]:checked ~ ul {
     height: 4em;
 }
 #selects input[type='submit'] {
-    width: 73%;
+    width: 100%;
     border: none;
     background-color: var(--purple);
     height: 3em;
@@ -387,4 +405,201 @@ footer a {
     color: var(--black);
     font-family: 'Montserrat', sans-serif;
 
+}
+/* End footer */
+
+/* Breakpoints */
+@media screen and (min-width: 500px){
+    #img-grid img, #img-grid picture {
+        min-width: auto;
+        max-width: auto;
+    }
+}
+@media screen and (min-width:800px) {
+    header {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 20% 50% 30%;
+    }
+    header nav {
+        position: relative;
+        grid-row: 3;
+        grid-column: 1 / 3;
+    }
+    #menu-toggle ul {
+        position: relative;
+        visibility: visible;
+    }
+    nav li {
+        width: 22%;
+    }
+    nav li a {
+        background-color: var(--white);
+        height: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav li a:focus, nav li a:hover {
+        background-color: var(--yellow);
+    }
+    header h2 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    header p {
+        grid-column: 2;
+        font-size: 20px;
+        width: 80%;
+    }
+    nav label {
+        display: none;
+    }
+    nav {
+        display: inline;
+    }
+    header nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    header h1, header p {
+        padding-left: 0px;
+    }
+    .active a {
+        background-color: var(--yellow);
+    }
+}
+@media screen and (min-width:940px) {
+    #img-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #img-grid img:not(:last-child) {
+        flex-grow: 0;
+        height: auto;
+    }
+    #img-grid picture {
+        display: flex;
+        flex-grow: 0;
+    }
+    #plan div {
+        width: 80%;
+        margin: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+    }
+    #plan div section {
+        flex-basis: 1;
+    }
+    #testimonials div {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #testimonials div section {
+        width: 40%;
+    }
+    #about div {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    #selects input[type='submit'] {
+        width: 30%;
+        align-self: flex-end;
+    }
+    footer {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+@media screen and (min-width:1479px) {
+    #plan div {
+        width: 60%;
+    }
+}
+@media screen and (min-width: 1917px) {
+    header {
+        grid-template-columns: 20% 40% 40%;
+        grid-template-rows: 1fr ;
+    }
+    header img {
+        grid-column: 1;
+        width: 70%;
+    }
+    header h1, header p {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    header p {
+        margin-top: 50px;
+    }
+    header nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 40%;
+    }
+    header nav ul {
+        justify-content: space-between;
+    }
+    #intro {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 100%;
+        margin: auto;
+    }
+    #intro h1, #intro p {
+        grid-column: 1;
+    }
+    #plan div {
+        width: 100%;
+    }
+    #testimonials {
+        padding-bottom: 3em;
+    }
+    #testimonials div {
+        flex-wrap: nowrap;
+        width: 80%;
+        margin: auto;
+    }
+
+    #about div {
+        width: 60%;
+        margin: auto;
+        padding-bottom: 2em;
+    }
+    #about h3 {
+        padding-top: 2em;
+    }
+    #contact {
+        padding-bottom: 1em;
+    }
+    #contact form {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #names input, #nums input {
+        width: 90%;
+        align-self: flex-start;
+    }
+    #names input, .custom-select {
+        margin-top: 13px;
+    }
+    #selects input[type='submit'] {
+        margin-top: 38px;
+    }
+    #nums fieldset {
+        flex-direction: row;
+    }
+    footer p {
+        flex-basis: 60%;
+    }
+    footer a {
+        flex-basis: 10%;
+    }
 }
